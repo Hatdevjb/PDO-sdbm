@@ -1,5 +1,21 @@
 <?php
 
+require_once ("dao.php");
+
+try {
+
+    $msg = "";
+
+    $sql = "select * from fabricant";
+    // liste des Fabricant (colone nom de la tabele fabricant)
+    $reponse = $connexion->query($sql);
+    foreach ($reponse as $row) {
+        $msg .= ( $row["nom_fabricant"] ."<br>");
+    }
+    
+} catch (PDOException $e) {
+    echo "Err lors de la requete ". $sql . $e->getMessage();
+}
 
 
 try {
