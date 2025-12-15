@@ -10,7 +10,7 @@
 
         require_once("dao.php");
         // Initialisation de la connexion
-        $connexion = creeConnection();
+    $connexion = creeConnection();
         
     } else {
         echo "Le fichier dao n'exsite pas !";
