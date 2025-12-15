@@ -1,36 +1,50 @@
 <?php
 
-require_once ("dao.php");
 
-try {
 
-    $msg = "";
+    // appel de dao.php
+    $dao_file = "dao.php";
 
-    $sql = "select * from fabricant";
-    // liste des Fabricant (colone nom de la tabele fabricant)
-    $reponse = $connexion->query($sql);
-    foreach ($reponse as $row) {
-        $msg .= ( $row["nom_fabricant"] ."<br>");
+    // vérif si dao existe
+    if (file_exists($dao_file)) {
+
+        require_once("dao.php");
+        // Initialisation de la connexion
+        $connexion = creeConnection();
+        
+    } else {
+        echo "Le fichier dao n'exsite pas !";
     }
-    
-} catch (PDOException $e) {
-    echo "Err lors de la requete ". $sql . $e->getMessage();
-}
 
+    try {
 
-try {
-    $sql = "select * from fabricant where id_fabricant= :id";
-    $reponse = $connexion->prepare($sql);
+        $msg = "";
 
-    $reponse->execute( array(":id" => 9));
-
-    while ($row = $reponse->fetch(PDO::FETCH_ASSOC)) {
-        $msg .= ( $row["id_fabricant"] ."<br>");
+        $sql = "select * from fabricant";
+        // liste des Fabricant (colone nom de la tabele fabricant)
+        $reponse = $connexion->query($sql);
+        foreach ($reponse as $row) {
+            $msg .= ( $row["nom_fabricant"] ."<br>");
+        }
+        
+    } catch (PDOException $e) {
+        echo "Err lors de la requete ". $sql . $e->getMessage();
     }
-    
-} catch (PDOException $e) {
-    echo "Err lors de la requete ". $sql . $e->getMessage();
-}
+
+
+    try {
+        $sql = "select * from fabricant where id_fabricant= :id";
+        $reponse = $connexion->prepare($sql);
+
+        $reponse->execute( array(":id" => 9));
+
+        while ($row = $reponse->fetch(PDO::FETCH_ASSOC)) {
+            $msg .= ( $row["id_fabricant"] ."<br>");
+        }
+        
+    } catch (PDOException $e) {
+        echo "Err lors de la requete ". $sql . $e->getMessage();
+    }
 
 ?>
 
