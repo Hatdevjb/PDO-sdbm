@@ -2,8 +2,9 @@
 
 
 
-    // appel de dao.php
+    // appel des fichiez impaortant (dao.php)
     require_once("dao.php");
+    require_once("fabricantMGR.php");
 
     // Initialisation de la connexion
     $connexion = creeConnection();
@@ -26,14 +27,12 @@
 
     try {
 
-        $msg1 = "";
+        $msg1= " ";
 
-        $sql = ;
-       
-        $msg1 .= ;
+        $msg1 .= "Le fabricant avec l'id n° " . implode(" est : ",getFabricantById(5));
         
     } catch (PDOException $e) {
-        echo "Err lors de la requete ". $sql . $e->getMessage();
+        echo "Err lors de la requete " . $e->getMessage();
     }
 
     
