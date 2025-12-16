@@ -3,18 +3,11 @@
 
 
     // appel de dao.php
-    $dao_file = "dao.php";
+    require_once("dao.php");
 
-    // vérif si dao existe
-    if (file_exists($dao_file)) {
-
-        require_once("dao.php");
-        // Initialisation de la connexion
+    // Initialisation de la connexion
     $connexion = creeConnection();
-        
-    } else {
-        echo "Le fichier dao n'exsite pas !";
-    }
+   
 
     try {
 
