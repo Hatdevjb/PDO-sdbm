@@ -3,6 +3,7 @@
     class DAO {
 
         private static $connexion;
+        
         /**
          * 
          * Crée une connexion et la retourne 
@@ -16,11 +17,13 @@
             if (!file_exists($param_file)) {
                 die("Fichier Paramètre INTROUVABLE !");
             }
-
+            // 
             $tparam = parse_ini_file($param_file, true);
 
             // variable du DSN
             extract($tparam);
+            
+            // dsn 
             $dsn = "mysql:dbname=" . $NOMDB . ";host=" . $NOMSERV . $PORT;
 
             try {
