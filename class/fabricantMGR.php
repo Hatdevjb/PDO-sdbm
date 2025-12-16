@@ -9,12 +9,15 @@
     class FabricantsMgr {
         
         /**
-         * Utilise nom fournie pour sortire  fabricant avec cette id (1 result)
+         * Utilise nom fournie pour sortire  la liste de la table 
+         * 
+         * @param [type] $nomTable
+         * @return array
          * 
         */
-        function getTableList($nomTable) {
+        public static function getTableList($nomTable) {
             // établit la co
-            $connexion = creeConnection();
+            $connexion = DAO::getConnexion();
 
             // requete pour la BDD (séléctione les fabricant avec l'id = ?)
             $sql = "SELECT * FROM $nomTable";
@@ -34,9 +37,9 @@
          * utilise id fournie pour sortire le fabricant avec cette id (1 result)
          * 
         */
-        function getFabricantById($id) {
+        public static function getFabricantById(int $idFabricant) {
             // établit la co
-            $connexion = creeConnection();
+            $connexion =  DAO::getConnexion();
 
             // requete pour la BDD (séléctione les fabricant avec l'id = ?)
             $sql = "SELECT * FROM fabricant WHERE id_fabricant= ?";
@@ -45,11 +48,16 @@
             $curseur = $connexion->prepare($sql);
 
             // execute le requete avec l'id rentrer  dans la fonction 
-            $curseur->execute( array($id));
+            $curseur->execute( array($idFabricant));
 
             $fabricant = $curseur->fetch(PDO::FETCH_ASSOC);
 
             $curseur->closeCursor();
+
+            // Test si aucun fabricant trouvé
+            if ($fabricant == false) {
+                throw new FabricantsMgrException("ERR:ID Fabricant inconnu");
+            }
 
             return $fabricant;
             
