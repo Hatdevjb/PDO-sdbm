@@ -12,15 +12,16 @@
 
         $msg = "";
 
-        $retour = getTableByName("fabricant","nom_fabricant");
-
+        $retour = getTableListe("fabricant");
+var_dump($retour);
+exit();
         // liste des Fabricant (colone nom de la tabele fabricant)
     
         
         if ($retour == false) {
-            $msg .= " Le nom de table ou de nom_  n'exsite pas dans la BDD !";
+            $msg .= " Le nom de table n'exsite pas dans la BDD !";
         } else {
-            $msg .=  implode(",",$retour);
+            $msg .=  implode("/",$retour);
         }
 
     } catch (PDOException $e) {
@@ -60,7 +61,7 @@
         <h1 class="container w-50 p-6 mt-5">Liste des fabricant : </h1>
 
         <div class="container w-50 border p-4 mt-5">
-            <p> Voici vos infos :  <br> <?= $msg ?> </p>
+            <p> Voici le résultat du test 1 :  <br> <?= $msg ?> </p>
 
             <p> <br> Voici le résultat du test 2 :  <br> <?= $msg1 ?> </p>
            
