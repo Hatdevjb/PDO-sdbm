@@ -7,23 +7,27 @@
     // Initialisation de la connexion
     $connexion = creeConnection();
    
-
+    // teste 1 Liste Fabricant (tables)
     try {
 
         $msg = "";
 
-        $sql = "select * from fabricant";
+        $retour = getTableByName("fabricant","nom_fabricant");
+
         // liste des Fabricant (colone nom de la tabele fabricant)
-        $reponse = $connexion->query($sql);
-        foreach ($reponse as $row) {
-            $msg .= ( $row["nom_fabricant"] ."<br>");
-        }
+    
         
+        if ($retour == false) {
+            $msg .= " Le nom de table ou de nom_  n'exsite pas dans la BDD !";
+        } else {
+            $msg .=  implode(",",$retour);
+        }
+
     } catch (PDOException $e) {
-        echo "Err lors de la requete ". $sql . $e->getMessage();
+        echo "Err lors de la requete " . $e->getMessage();
     }
 
-    // teste ? fonction du fabricant
+    // teste 2 : fonction du fabricant ID
     try {
 
         $msg1= " ";
