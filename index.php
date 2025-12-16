@@ -1,7 +1,5 @@
 <?php
 
-
-
     // appel des fichiez impaortant (dao.php)
     require_once("dao.php");
     require_once("fabricantMGR.php");
@@ -25,11 +23,18 @@
         echo "Err lors de la requete ". $sql . $e->getMessage();
     }
 
+    // teste ? fonction du fabricant
     try {
 
         $msg1= " ";
 
-        $msg1 .= "Le fabricant avec l'id n° " . implode(" est : ",getFabricantById(5));
+        $retour = getFabricantById(id: 2);
+
+        if ($retour == false) {
+            $msg1 .= " L'id rechercher n'exsite pas dans la table !";
+        } else {
+            $msg1 .= "Le fabricant avec l'id n° " . implode(" est : ",$retour);
+        }
         
     } catch (PDOException $e) {
         echo "Err lors de la requete " . $e->getMessage();
