@@ -8,25 +8,25 @@
     $connexion = creeConnection();
    
     // teste 1 Liste Fabricant (tables)
-    try {
+//     try {
 
         $msg = "";
 
-        $retour = getTableListe("fabricant");
-var_dump($retour);
-exit();
-        // liste des Fabricant (colone nom de la tabele fabricant)
+//         $retour = getTableList("fabricant");
+// var_dump($retour);
+// exit();
+//         // liste des Fabricant (colone nom de la tabele fabricant)
     
         
-        if ($retour == false) {
-            $msg .= " Le nom de table n'exsite pas dans la BDD !";
-        } else {
-            $msg .=  implode("/",$retour);
-        }
+//         if ($retour == false) {
+//             $msg .= " Le nom de table n'exsite pas dans la BDD !";
+//         } else {
+//             $msg .=  implode("/",$retour);
+//         }
 
-    } catch (PDOException $e) {
-        echo "Err lors de la requete " . $e->getMessage();
-    }
+//     } catch (PDOException $e) {
+//         echo "Err lors de la requete " . $e->getMessage();
+//     }
 
     // teste 2 : fonction du fabricant ID
     try {
