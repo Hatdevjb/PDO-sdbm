@@ -1,4 +1,10 @@
 <?php
+
+    /**
+     * 
+     * Crée une connexion et la retourne 
+     * 
+     */
     function creeConnection() {
         // appel de param.ini
         $param_file = "param/param.ini";

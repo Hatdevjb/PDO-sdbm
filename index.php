@@ -24,21 +24,19 @@
         echo "Err lors de la requete ". $sql . $e->getMessage();
     }
 
-
     try {
-        $sql = "select * from fabricant where id_fabricant= :id";
-        $reponse = $connexion->prepare($sql);
 
-        $reponse->execute( array(":id" => 9));
+        $msg1 = "";
 
-        while ($row = $reponse->fetch(PDO::FETCH_ASSOC)) {
-            $msg .= ( $row["id_fabricant"] ."<br>");
-        }
+        $sql = ;
+       
+        $msg1 .= ;
         
     } catch (PDOException $e) {
         echo "Err lors de la requete ". $sql . $e->getMessage();
     }
 
+    
 ?>
 
 <!doctype html>
@@ -55,6 +53,8 @@
 
         <div class="container w-50 border p-4 mt-5">
             <p> Voici vos infos :  <br> <?= $msg ?> </p>
+
+            <p> <br> Voici le résultat du test 2 :  <br> <?= $msg1 ?> </p>
            
         </div>
         
