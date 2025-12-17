@@ -8,7 +8,7 @@
     // Initialisation de la connexion
     
    
-    // teste 1 Liste Fabricant (tables)
+    // teste 0 Liste Fabricant (tables)
     try {
 
         $msg = "<ul>";
@@ -34,13 +34,12 @@
         echo "Err lors de la requete " . $e->getMessage();
     }
 
-    // teste 2 : fonction du fabricant ID
+    // teste 1 : fonction du fabricant ID
     try {
 
         $msg1= " ";
 
-        $retour = FabricantsMgr::getFabricantById( 10
-    );
+        $retour = FabricantsMgr::getFabricantById( 11);
 
         if ($retour == false) {
             $msg1 .= " L'id rechercher n'exsite pas dans la table !";
@@ -55,13 +54,13 @@
     // teste 2 : fonction du fabricant ID
     // try {
 
-    //     $msg2 = " ";
+        $msg2 = " ";
 
     //     $retour = FabricantsMgr::addFabricantByName( "Maritsu");
     
 
     //     if ($retour == false) {
-    //         $msg2 .= " L'id rechercher n'exsite pas dans la table !";
+    //         $msg2 .= " erreure la fabracant n'a pas été créer !";
     //     } else {
     //         $msg2 .= "Nouveau fabricant avec l'id n° " . $retour;
     //     }
@@ -69,6 +68,25 @@
     // } catch (PDOException $e) {
     //     echo "Err lors de la requete " . $e->getMessage();
     // }
+
+    // teste 3 : fonction du fabricant ID
+    try {
+
+        $msg3 = " ";
+
+        $retour = FabricantsMgr::delFabricantByID( 12);
+    
+
+        if ($retour == false) {
+            $msg3 .= " L'id rechercher n'exsite pas dans la table !";
+        } else {
+            $msg3 .= "Fabricant avec l'id n° " . $retour;
+        }
+        
+    } catch (PDOException $e) {
+        echo "Err lors de la requete " . $e->getMessage();
+    }
+
 
 ?>
 
@@ -85,11 +103,13 @@
         <h1 class="container w-50 p-6 mt-5">Liste des fabricant : </h1>
 
         <div class="container w-50 border p-4 mt-5">
-            <p> Voici le résultat du test 1 : <?= $msg ?> </p>
+            <p> Voici le résultat du test  : <?= $msg ?> </p>
 
-            <p> <br> Voici le résultat du test 2 :  <br> <?= $msg1 ?> </p>
+            <p> <br> Voici le résultat du test 1 :  <br> <?= $msg1 ?> </p>
 
             <p> <br> Voici le résultat du test 2 :  <br> <?= $msg2 ?> </p>
+
+            <p> <br> Voici le résultat du test 3 :  <br> <?= $msg3 ?> </p>
            
         </div>
         

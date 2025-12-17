@@ -90,6 +90,23 @@
             }
         }
 
+        public static function delFabricant(Fabricant $fabricant): int {
+            return self::delFabricantByID($fabricant->getId_fabricant());
+        }
+
+        public static function delFabricantByID(int $id) {
+            
+            $connexion = DAO::getConnexion();
+
+            $sql = "DELETE FROM fabricant WHERE id_fabricant = ?";
+          
+            $requete = $connexion->prepare($sql);
+            $requete->execute(array($id));
+
+            $nombre = $requete->rowCount();
+
+            return $nombre;
+        }
 
         
     }
