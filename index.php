@@ -8,7 +8,7 @@
     // Initialisation de la connexion
     
    
-    // teste 0 Liste Fabricant (tables)
+    // teste 0 LISTE TABLE (Fabricant) 
     try {
 
         $msg = "<ul>";
@@ -34,7 +34,7 @@
         echo "Err lors de la requete " . $e->getMessage();
     }
 
-    // teste 1 : fonction du fabricant ID
+    // teste 1 : SELECT 1 by ID
     try {
 
         $msg1= " ";
@@ -51,7 +51,7 @@
         echo "Err lors de la requete " . $e->getMessage();
     }
 
-    // teste 2 : fonction du fabricant ID
+    // teste 2 : ADD
     // try {
 
         $msg2 = " ";
@@ -69,23 +69,23 @@
     //     echo "Err lors de la requete " . $e->getMessage();
     // }
 
-    // teste 3 : fonction du fabricant ID
-    try {
+    // teste 3 : SUPPR
+    // try {
 
-        $msg3 = " ";
+    //     $msg3 = " ";
 
-        $retour = FabricantsMgr::delFabricantByID( 12);
+    //     $retour = FabricantsMgr::delFabricantByID( 12);
     
 
-        if ($retour == false) {
-            $msg3 .= " L'id rechercher n'exsite pas dans la table !";
-        } else {
-            $msg3 .= "Fabricant avec l'id n° " . $retour;
-        }
+    //     if ($retour == false) {
+    //         $msg3 .= " L'id rechercher n'exsite pas dans la table !";
+    //     } else {
+    //         $msg3 .= "Fabricant avec l'id n° " . $retour;
+    //     }
         
-    } catch (PDOException $e) {
-        echo "Err lors de la requete " . $e->getMessage();
-    }
+    // } catch (PDOException $e) {
+    //     echo "Err lors de la requete " . $e->getMessage();
+    // }
 
 
 ?>
