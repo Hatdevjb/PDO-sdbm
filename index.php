@@ -25,7 +25,7 @@
              $msg .= " Le nom de table n'exsite pas dans la BDD !";
         } else {
             foreach($retours as $retour){
-                $msg .=  " <li>". " ID : " .$retour['id_fabricant'] . "  et  Nom : "  . $retour['nom_fabricant'] ."<li> ";  //implode(",",$retour);
+                $msg .=  " <li>". " ID : " .$retour['id_fabricant'] . "  et  Nom : "  . $retour['nom_fabricant'] ."<li> ";  
             }
             $msg .= "</ul>";
         }
