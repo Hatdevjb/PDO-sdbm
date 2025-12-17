@@ -39,9 +39,9 @@
 
         $msg1= " ";
 
-        $retour = FabricantsMgr::getFabricantById( 11);
+        $retour = FabricantsMgr::getFabricantById( 12);
 
-        if ($retour == false) {
+        if (!$retour) {
             $msg1 .= " L'id rechercher n'exsite pas dans la table !";
         } else {
             $msg1 .= "Le fabricant avec l'id n° " . implode(" est : ",$retour);
@@ -49,6 +49,8 @@
         
     } catch (PDOException $e) {
         echo "Err lors de la requete " . $e->getMessage();
+    } catch (FabricantsMgrException $e) {
+        $msg1 .= "Err lors de la requete " . $e->getMessage();
     }
 
     // teste 2 : ADD
