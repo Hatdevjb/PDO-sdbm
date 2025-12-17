@@ -15,18 +15,19 @@
 
         $table = "fabricant";
 
-        $retour = FabricantsMgr::getTableList($table);
+        $retours = FabricantsMgr::getTableList($table);
 
         // liste des Fabricant (colone nom de la tabele fabricant)
 // var_dump($retour);
 // exit();
         
-        if ($retour == false) {
+        if ($retours == false) {
              $msg .= " Le nom de table n'exsite pas dans la BDD !";
         } else {
-            foreach($retour as $key => $value){
-                $msg .=  " <li>$retour<li> ";  //implode(",",$retour);
+            foreach($retours as $retour){
+                $msg .=  " <li>$retour[nom_fabricant]<li> ";  //implode(",",$retour);
             }
+            $msg .= "</ul>";
         }
 
     } catch (PDOException $e) {
@@ -67,7 +68,7 @@
         <h1 class="container w-50 p-6 mt-5">Liste des fabricant : </h1>
 
         <div class="container w-50 border p-4 mt-5">
-            <p> Voici le résultat du test 1 :  <br> <?= $msg ?> </p>
+            <p> Voici le résultat du test 1 : <?= $msg ?> </p>
 
             <p> <br> Voici le résultat du test 2 :  <br> <?= $msg1 ?> </p>
            
