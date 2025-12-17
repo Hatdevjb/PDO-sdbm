@@ -9,44 +9,44 @@
     
    
     // teste 1 Liste Fabricant (tables)
-    try {
+    // try {
 
         $msg = "";
 
-        $table = "fabricant";
+    //     $table = "fabricant";
 
-        $retour = FabricantsMgr::getTableList($table);
+    //     $retour = FabricantsMgr::getTableList($table);
 
          // liste des Fabricant (colone nom de la tabele fabricant)
 // var_dump($retour);
 // exit();
         
-        if ($retour == false) {
-             $msg .= " Le nom de table n'exsite pas dans la BDD !";
-        } else {
-            $msg .=  implode(",",$retour);
-        }
-
-    } catch (PDOException $e) {
-        echo "Err lors de la requete " . $e->getMessage();
-    }
-
-    // teste 2 : fonction du fabricant ID
-    // try {
-
-        $msg1= " ";
-
-    //     $retour = getFabricantById(id: 2);
-
     //     if ($retour == false) {
-    //         $msg1 .= " L'id rechercher n'exsite pas dans la table !";
+    //          $msg .= " Le nom de table n'exsite pas dans la BDD !";
     //     } else {
-    //         $msg1 .= "Le fabricant avec l'id n° " . implode(" est : ",$retour);
+    //         $msg .=  implode(",",$retour);
     //     }
-        
+
     // } catch (PDOException $e) {
     //     echo "Err lors de la requete " . $e->getMessage();
     // }
+
+    // teste 2 : fonction du fabricant ID
+    try {
+
+        $msg1= " ";
+
+        $retour = FabricantsMgr::getFabricantById( 2);
+
+        if ($retour == false) {
+            $msg1 .= " L'id rechercher n'exsite pas dans la table !";
+        } else {
+            $msg1 .= "Le fabricant avec l'id n° " . implode(" est : ",$retour);
+        }
+        
+    } catch (PDOException $e) {
+        echo "Err lors de la requete " . $e->getMessage();
+    }
 
     
 ?>
