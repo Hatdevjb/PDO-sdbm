@@ -65,8 +65,31 @@
             return $fabricant;
             
         } 
-
         
+        public static function addFabricant(Fabricant $fabricant): int {
+            return self::addFabricantByName($fabricant->getNom_fabricant());
+        }
+
+        public static function addFabricantByName(string $nom): int {
+            $connexion = DAO::getConnexion();
+
+            $sql = "INSERT INTO fabricant (nom_fabricant) VALUES (:nom)";
+
+            $curseur = $connexion->prepare($sql);
+
+            $curseur->bindValue(':nom',$nom,PDO::PARAM_STR);
+           
+            try {
+                $curseur->execute();
+                $curseur->closeCursor();
+
+                $id_new = $connexion->lastInsertId();
+                return $id_new;
+            } catch(PDOException $e) {
+                return 0;
+            }
+        }
+
 
         
     }

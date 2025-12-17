@@ -52,7 +52,24 @@
         echo "Err lors de la requete " . $e->getMessage();
     }
 
+    // teste 2 : fonction du fabricant ID
+    try {
+
+        $msg2 = " ";
+
+        $retour = FabricantsMgr::addFabricantByName( "Maritsu");
     
+
+        if ($retour == false) {
+            $msg2 .= " L'id rechercher n'exsite pas dans la table !";
+        } else {
+            $msg2 .= "Nouveau fabricant avec l'id n° " . $retour;
+        }
+        
+    } catch (PDOException $e) {
+        echo "Err lors de la requete " . $e->getMessage();
+    }
+
 ?>
 
 <!doctype html>
@@ -71,6 +88,8 @@
             <p> Voici le résultat du test 1 : <?= $msg ?> </p>
 
             <p> <br> Voici le résultat du test 2 :  <br> <?= $msg1 ?> </p>
+
+            <p> <br> Voici le résultat du test 2 :  <br> <?= $msg2 ?> </p>
            
         </div>
         
