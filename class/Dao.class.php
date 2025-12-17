@@ -24,7 +24,7 @@
             extract($tparam);
             
             // dsn 
-            $dsn = "mysql:dbname=" . $NOMDB . ";host=" . $NOMSERV . $PORT;
+            $dsn = "mysql:dbname=" . $NOMDB . ";host=" . $NOMHOST . $PORT;
 
             try {
 

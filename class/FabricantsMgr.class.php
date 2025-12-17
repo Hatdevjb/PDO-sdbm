@@ -15,7 +15,7 @@
          * @return array
          * 
         */
-        public static function getTableList($nomTable) {
+        public static function getTableList(string $nomTable) {
             // établit la co
             $connexion = DAO::getConnexion();
 
@@ -35,6 +35,9 @@
 
         /**
          * utilise id fournie pour sortire le fabricant avec cette id (1 result)
+         * 
+         * @param [type] $idfabricant
+         * @return array
          * 
         */
         public static function getFabricantById(int $idFabricant) {
