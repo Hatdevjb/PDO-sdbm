@@ -9,34 +9,37 @@
     
    
     // teste 1 Liste Fabricant (tables)
-    // try {
+    try {
 
-        $msg = "";
+        $msg = "<ul>";
 
-    //     $table = "fabricant";
+        $table = "fabricant";
 
-    //     $retour = FabricantsMgr::getTableList($table);
+        $retour = FabricantsMgr::getTableList($table);
 
-         // liste des Fabricant (colone nom de la tabele fabricant)
+        // liste des Fabricant (colone nom de la tabele fabricant)
 // var_dump($retour);
 // exit();
         
-    //     if ($retour == false) {
-    //          $msg .= " Le nom de table n'exsite pas dans la BDD !";
-    //     } else {
-    //         $msg .=  implode(",",$retour);
-    //     }
+        if ($retour == false) {
+             $msg .= " Le nom de table n'exsite pas dans la BDD !";
+        } else {
+            foreach($retour as $key => $value){
+                $msg .=  " <li>$retour<li> ";  //implode(",",$retour);
+            }
+        }
 
-    // } catch (PDOException $e) {
-    //     echo "Err lors de la requete " . $e->getMessage();
-    // }
+    } catch (PDOException $e) {
+        echo "Err lors de la requete " . $e->getMessage();
+    }
 
     // teste 2 : fonction du fabricant ID
     try {
 
         $msg1= " ";
 
-        $retour = FabricantsMgr::getFabricantById( 2);
+        $retour = FabricantsMgr::getFabricantById( 10
+    );
 
         if ($retour == false) {
             $msg1 .= " L'id rechercher n'exsite pas dans la table !";
