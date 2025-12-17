@@ -25,7 +25,7 @@
              $msg .= " Le nom de table n'exsite pas dans la BDD !";
         } else {
             foreach($retours as $retour){
-                $msg .=  " <li>$retour[nom_fabricant]<li> ";  //implode(",",$retour);
+                $msg .=  " <li>". " ID : " .$retour['id_fabricant'] . "  et  Nom : "  . $retour['nom_fabricant'] ."<li> ";  //implode(",",$retour);
             }
             $msg .= "</ul>";
         }
@@ -53,22 +53,22 @@
     }
 
     // teste 2 : fonction du fabricant ID
-    try {
+    // try {
 
-        $msg2 = " ";
+    //     $msg2 = " ";
 
-        $retour = FabricantsMgr::addFabricantByName( "Maritsu");
+    //     $retour = FabricantsMgr::addFabricantByName( "Maritsu");
     
 
-        if ($retour == false) {
-            $msg2 .= " L'id rechercher n'exsite pas dans la table !";
-        } else {
-            $msg2 .= "Nouveau fabricant avec l'id n° " . $retour;
-        }
+    //     if ($retour == false) {
+    //         $msg2 .= " L'id rechercher n'exsite pas dans la table !";
+    //     } else {
+    //         $msg2 .= "Nouveau fabricant avec l'id n° " . $retour;
+    //     }
         
-    } catch (PDOException $e) {
-        echo "Err lors de la requete " . $e->getMessage();
-    }
+    // } catch (PDOException $e) {
+    //     echo "Err lors de la requete " . $e->getMessage();
+    // }
 
 ?>
 
